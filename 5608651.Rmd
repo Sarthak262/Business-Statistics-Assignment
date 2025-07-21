@@ -2,12 +2,12 @@
 title: "Business Statistics End of Term Assessment IB94X0 2024-2025 #1"
 author: '5608651'
 output:
-  html_document:
-    toc: true
-    toc_depth: 3
   pdf_document:
     toc: true
     toc_depth: '3'
+  html_document:
+    toc: true
+    toc_depth: 3
 ---
 
 ```{r setup, message=FALSE}

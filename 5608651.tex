@@ -1,0 +1,2299 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Business Statistics End of Term Assessment IB94X0 2024-2025 \#1},
+  pdfauthor={5608651},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Business Statistics End of Term Assessment IB94X0 2024-2025 \#1}
+\author{5608651}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(broom)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(car)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'car' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'carData' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggcorrplot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'ggcorrplot' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ez)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'ez' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Academic Integrity Declaration}
+
+We're part of an academic community at Warwick. Whether studying,
+teaching, or researching, we're all taking part in an expert
+conversation which must meet standards of academic integrity. When we
+all meet these standards, we can take pride in our own academic
+achievements, as individuals and as an academic community.
+
+Academic integrity means committing to honesty in academic work, giving
+credit where we've used others' ideas and being proud of our own
+achievements.
+
+In submitting my work, I confirm that:
+
+\begin{itemize}
+\item
+  I have read the guidance on academic integrity provided in the Student
+  Handbook and understand the University regulations in relation to
+  Academic Integrity. I am aware of the potential consequences of
+  Academic Misconduct.
+\item
+  I declare that this work is being submitted on behalf of my group and
+  is all our own, , except where I have stated otherwise.
+\item
+  No substantial part(s) of the work submitted here has also been
+  submitted by me in other credit bearing assessments courses of study
+  (other than in certain cases of a resubmission of a piece of work),
+  and I acknowledge that if this has been done this may lead to an
+  appropriate sanction.
+\item
+  Where a generative Artificial Intelligence such as ChatGPT has been
+  used I confirm I have abided by both the University guidance and
+  specific requirements as set out in the Student Handbook and the
+  Assessment brief. I have clearly acknowledged the use of any
+  generative Artificial Intelligence in my submission, my reasoning for
+  using it and which generative AI (or AIs) I have used. Except where
+  indicated the work is otherwise entirely my own.
+\item
+  I understand that should this piece of work raise concerns requiring
+  investigation in relation to any of points above, it is possible that
+  other work I have submitted for assessment will be checked, even if
+  marks (provisional or confirmed) have been published.
+\item
+  Where a proof-reader, paid or unpaid was used, I confirm that the
+  proof-reader was made aware of and has complied with the University's
+  proofreading policy.
+\end{itemize}
+
+\textbf{Use of AI statement}
+
+In completing this assignment, I utilized OpenAI's ChatGPT to assist
+with certain aspects of R programming, specifically for:
+
+\begin{itemize}
+\item
+  Developing R code syntax for data cleaning and analysis.
+\item
+  Exploring different approaches for exploratory data analysis (EDA) and
+  receiving recommendations for various visualizations.
+\end{itemize}
+
+The guidance from ChatGPT helped in identifying different approaches to
+clean and process the data efficiently. All code implementations and
+interpretations in this report were reviewed, modified, and validated
+independently to ensure accuracy and understanding.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Question 1}\label{question-1}
+
+\subsection{Data Dictionary}\label{data-dictionary}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.1795}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.8205}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+CVD & Percentage of people living in the area who have recently
+experienced Cardiovascular Disease (CVD) \\
+overweight & Proportion of people in the area who are overweight \\
+smokers & Proportion of people in the area who smoke \\
+wellbeing & Average wellbeing score of people living in the area \\
+Poverty & Proportion of people in the area who meet the definition of
+living in poverty \\
+Population & Total population living in each area \\
+area\_name & Cities \\
+area\_code & Area code of the cities \\
+\end{longtable}
+
+\subsection{Data Loading and
+Preparation}\label{data-loading-and-preparation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load the data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"Cardio\_Vascular\_Disease.csv"}\NormalTok{)}
+
+\CommentTok{\# Ensure column names are properly formatted}
+\FunctionTok{names}\NormalTok{(data) }\OtherTok{\textless{}{-}} \FunctionTok{make.names}\NormalTok{(}\FunctionTok{names}\NormalTok{(data))}
+
+\CommentTok{\# Provide summary statistics for the main variables before any operation}
+\FunctionTok{summary}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   area_name          area_code           Population         Poverty     
+##  Length:385         Length:385         Min.   :   1960   Min.   :12.90  
+##  Class :character   Class :character   1st Qu.: 100640   1st Qu.:16.90  
+##  Mode  :character   Mode  :character   Median : 135275   Median :18.70  
+##                                        Mean   : 174804   Mean   :19.34  
+##                                        3rd Qu.: 216600   3rd Qu.:21.40  
+##                                        Max.   :1056970   Max.   :30.70  
+##                                        NA's   :76        NA's   :76     
+##       CVD          overweight       smokers        wellbeing    
+##  Min.   : 7.90   Min.   :10.24   Min.   : 3.20   Min.   :6.610  
+##  1st Qu.:10.90   1st Qu.:21.63   1st Qu.:10.72   1st Qu.:7.280  
+##  Median :12.30   Median :25.52   Median :12.80   Median :7.410  
+##  Mean   :12.42   Mean   :25.52   Mean   :13.07   Mean   :7.423  
+##  3rd Qu.:14.10   3rd Qu.:29.46   3rd Qu.:15.30   3rd Qu.:7.560  
+##  Max.   :17.80   Max.   :40.22   Max.   :27.80   Max.   :8.170  
+##  NA's   :76      NA's   :72      NA's   :7       NA's   :15
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show row counts with missing values before any operation}
+\NormalTok{missing\_counts\_before }\OtherTok{\textless{}{-}} \FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(data))}
+
+\FunctionTok{print}\NormalTok{(}\StringTok{"Row counts with missing values before deletion:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Row counts with missing values before deletion:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(missing\_counts\_before)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  area_name  area_code Population    Poverty        CVD overweight    smokers 
+##          0          0         76         76         76         72          7 
+##  wellbeing 
+##         15
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  If the proportion of missing values is relatively small (as in this
+  case), deleting them likely has minimal impact on the overall results.
+\item
+  Deleting rows ensures a cleaner dataset and more reliable regression
+  results.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Remove rows with missing values}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(data)}
+
+\CommentTok{\# Show row counts after deletion}
+\NormalTok{missing\_counts\_after }\OtherTok{\textless{}{-}} \FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(data))}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Row counts with missing values after deletion:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Row counts with missing values after deletion:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(missing\_counts\_after)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  area_name  area_code Population    Poverty        CVD overweight    smokers 
+##          0          0          0          0          0          0          0 
+##  wellbeing 
+##          0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Display first few rows to understand data structure}
+\FunctionTok{head}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              area_name area_code Population Poverty  CVD overweight smokers
+## 1           Hartlepool E06000001      88905    23.0 13.7   34.63238    17.3
+## 2        Middlesbrough E06000002     133375    25.1 13.1   31.95300    17.9
+## 3 Redcar and Cleveland E06000003     131035    21.4 15.0   33.37358    13.3
+## 4     Stockton-on-Tees E06000004     186365    19.5 12.4   40.21633    12.5
+## 5           Darlington E06000005     104300    19.7 11.9   35.68230    10.6
+## 6               Halton E06000006     125725    21.9 15.7   32.25929    13.2
+##   wellbeing
+## 1      7.33
+## 2      7.21
+## 3      7.44
+## 4      7.40
+## 5      7.25
+## 6      7.29
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check if the dataset have any duplicate values}
+\NormalTok{data\_dupli\_count }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{duplicated}\NormalTok{(data))}
+\FunctionTok{print}\NormalTok{(data\_dupli\_count)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  There are No duplicate values.
+\end{itemize}
+
+\subsection{Summary Statistics}\label{summary-statistics}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Provide summary statistics for the main variables after removing missing values}
+\FunctionTok{summary}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   area_name          area_code           Population         Poverty     
+##  Length:303         Length:303         Min.   :  36890   Min.   :12.90  
+##  Class :character   Class :character   1st Qu.: 101225   1st Qu.:16.95  
+##  Mode  :character   Mode  :character   Median : 135540   Median :18.70  
+##                                        Mean   : 175327   Mean   :19.36  
+##                                        3rd Qu.: 214975   3rd Qu.:21.45  
+##                                        Max.   :1056970   Max.   :30.70  
+##       CVD          overweight       smokers        wellbeing    
+##  Min.   : 7.90   Min.   :10.24   Min.   : 3.70   Min.   :6.610  
+##  1st Qu.:10.90   1st Qu.:21.65   1st Qu.:10.50   1st Qu.:7.275  
+##  Median :12.30   Median :25.63   Median :12.60   Median :7.410  
+##  Mean   :12.45   Mean   :25.54   Mean   :12.87   Mean   :7.417  
+##  3rd Qu.:14.15   3rd Qu.:29.54   3rd Qu.:15.20   3rd Qu.:7.545  
+##  Max.   :17.80   Max.   :40.22   Max.   :27.80   Max.   :8.100
+\end{verbatim}
+
+\begin{itemize}
+\item
+  \textbf{Key Variables:}
+
+  \begin{itemize}
+  \item
+    \textbf{Population:} Minimum: 36,890; Maximum: 1,056,970. Most
+    regions have populations around the median (135,540), with a few
+    outliers having very large populations.
+  \item
+    \textbf{Poverty:} Values range from 12.9\% to 30.7\%. The median
+    poverty rate is 18.7\%, meaning half of the regions have poverty
+    levels below this value.
+  \item
+    \textbf{CVD (Cardiovascular Disease Prevalence):} Ranges from 7.9\%
+    to 17.8\%. Median prevalence is 12.3\%, with most regions falling
+    around this value.
+  \item
+    \textbf{Overweight:} Ranges from 10.24\% to 40.22\%. The median is
+    25.63\%, suggesting overweight proportions are moderately
+    distributed across regions.
+  \item
+    \textbf{Smokers:} Ranges from 3.7\% to 27.8\%. The median is 12.6\%,
+    showing smoking prevalence is generally low.
+  \item
+    \textbf{Wellbeing:} Ranges from 6.61 to 8.10. Most regions have
+    wellbeing scores clustered around the median (7.41), with some
+    variation.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Correlation}\label{correlation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cor\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(data[}\FunctionTok{c}\NormalTok{(}\StringTok{"CVD"}\NormalTok{, }\StringTok{"Poverty"}\NormalTok{, }\StringTok{"overweight"}\NormalTok{, }\StringTok{"smokers"}\NormalTok{, }\StringTok{"wellbeing"}\NormalTok{)], }
+                  \AttributeTok{use =} \StringTok{"complete.obs"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(cor\_matrix)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   CVD    Poverty  overweight    smokers   wellbeing
+## CVD         1.0000000 -0.2480841  0.31900420  0.1778206  0.24536584
+## Poverty    -0.2480841  1.0000000  0.13933765  0.3613067 -0.34510391
+## overweight  0.3190042  0.1393377  1.00000000  0.4033591 -0.04183724
+## smokers     0.1778206  0.3613067  0.40335911  1.0000000 -0.19895474
+## wellbeing   0.2453658 -0.3451039 -0.04183724 -0.1989547  1.00000000
+\end{verbatim}
+
+\begin{itemize}
+\item
+  \textbf{Key Relationships:}
+
+  \begin{itemize}
+  \item
+    \textbf{CVD (Dependent Variable):}
+  \item
+    Overweight (0.319): Weak positive correlation, indicating that areas
+    with higher overweight prevalence tend to have slightly higher rates
+    of CVD.
+  \item
+    Poverty (-0.248): Weak negative correlation, suggesting that higher
+    poverty might be linked to slightly lower CVD rates. This is
+    unexpected and should be explored further.
+  \item
+    Smokers (0.178): Very weak positive correlation, showing minimal
+    association between smoking prevalence and CVD.
+  \item
+    Wellbeing (0.245): Weak positive correlation, implying a slight
+    association between higher wellbeing and higher CVD rates.
+  \item
+    \textbf{Poverty:}
+  \item
+    Smokers (0.361): Moderate positive correlation, suggesting smoking
+    is more common in poorer areas.
+  \item
+    Wellbeing (-0.345): Moderate negative correlation, showing that
+    poorer areas tend to have lower wellbeing.
+  \item
+    \textbf{Other Notable Relationships:}
+  \item
+    Overweight \& Smokers (0.404): Moderate positive correlation,
+    indicating that areas with more overweight individuals also have
+    higher smoking prevalence.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Distribution Analysis}\label{distribution-analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  Performed distribution analysis to understand the nature of the data
+  and prepare it for further analysis.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot histograms for each variable to check distribution}
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ CVD)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribution of Cardiovascular Disease (CVD) Prevalence"}\NormalTok{, }\AttributeTok{x =} \StringTok{"CVD Prevalence (\%)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Frequency"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ overweight)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribution of Overweight Proportion"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Overweight Proportion (\%)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Frequency"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-3-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ smokers)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribution of Smokers Proportion"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Smokers Proportion (\%)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Frequency"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-3-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ wellbeing)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribution of Wellbeing Score"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Wellbeing Score"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Frequency"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-3-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Poverty)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribution of Poverty Proportion"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Poverty Proportion (\%)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Frequency"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-3-5.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Explanation}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Histograms help us visualize the distribution of the CVD prevalence
+    variable, identifying skewness or normality issues.
+  \item
+    The \textbf{CVD prevalence} appears to be approximately symmetric,
+    with most values clustering around 12\%-14\%.
+  \item
+    A roughly normal distribution indicates that CVD prevalence does not
+    heavily skew towards extreme values, making it suitable for
+    statistical methods like regression analysis without requiring
+    transformations.
+  \item
+    Similar histogram for \textbf{Overweight} allow us to check its
+    respective distributions for patterns or outliers.
+  \item
+    The distribution appears approximately normal, with most values
+    clustering around the center (20\%-30\% overweight).
+  \item
+    Since the data is roughly symmetric, it is unlikely that this
+    variable needs transformation for regression analysis.
+  \item
+    \textbf{The Smokers Proportion distribution} is approximately
+    normal, centered around 10-15\%. This indicates that most regions
+    have similar smoking rates, and the variable does not need
+    transformation before being used in a regression model.
+  \item
+    \textbf{The Wellbeing Score distribution} is slightly skewed to the
+    left, with most scores clustering around 7-7.5. The slight skewness
+    suggests that a log transformation might normalize the data for
+    better regression analysis.
+  \item
+    \textbf{The Poverty Proportion distribution} is slightly skewed to
+    the right, with most poverty proportions falling between 15\% and
+    25\%. This skewness makes log transformation an appropriate step to
+    improve the reliability of regression analysis.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Data Transformation}\label{data-transformation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Apply log transformation to normalize Wellbeing and Poverty}
+\CommentTok{\# Adding a small constant to avoid log(0) {-} }
+\CommentTok{\#The logarithmic function (log(x)) is undefined for zero or negative values.}
+\CommentTok{\#Adding +1 ensures that all values in the dataset are shifted up by 1, eliminating any zero values and making the transformation valid for all data points.}
+
+\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{Wellbeing\_log =} \FunctionTok{log}\NormalTok{(wellbeing }\SpecialCharTok{+} \DecValTok{1}\NormalTok{),}
+    \AttributeTok{Poverty\_log =} \FunctionTok{log}\NormalTok{(Poverty }\SpecialCharTok{+} \DecValTok{1}\NormalTok{)}
+\NormalTok{  )}
+
+\CommentTok{\# Plot histograms for the transformed variables}
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Wellbeing\_log)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribution of Log{-}Transformed Wellbeing Score"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Log(Wellbeing Score)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Frequency"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/data-transformation-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Explanation:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A log transformation compresses large values more than smaller
+    values, reducing the skewness and making the data more symmetric,
+    which is crucial for statistical analyses like regression that
+    assume normally distributed variables.
+  \item
+    The log transformation reduces skewness in Wellbeing, making it more
+    suitable for regression analysis.
+  \item
+    The distribution is now approximately normal, with the majority of
+    values concentrated around the center (log values between 2.1 and
+    2.15).
+  \item
+    The transformation makes the variable more compatible with
+    statistical methods that assume normality, improving the reliability
+    of the regression model.
+  \item
+    The symmetrical distribution ensures that the variable contributes
+    effectively as a predictor in modeling without bias introduced by
+    outliers.
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Poverty\_log)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribution of Log{-}Transformed Poverty Proportion"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Log(Poverty Proportion)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Frequency"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Explanation:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Transforming Poverty similarly ensures it adheres to normality
+    assumptions required for linear models.
+  \item
+    The distribution is now closer to normal, with most values
+    clustering around 3.0 (logarithmic scale).
+  \item
+    The transformation ensures that the poverty variable conforms more
+    closely to normality, making it a better fit for use in regression
+    models.
+  \item
+    By reducing skewness, the transformation minimizes the bias that
+    could arise from outliers, improving the reliability and
+    interpretability of the statistical analysis.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Regression Analysis}\label{regression-analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  We are using linear regression because it is a well-suited method for
+  analyzing the relationship between a dependent variable (CVD
+  prevalence) and multiple independent variables (e.g., poverty,
+  smokers, overweight, and wellbeing).
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Fit a linear regression model with transformed variables}
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(CVD }\SpecialCharTok{\textasciitilde{}}\NormalTok{ overweight }\SpecialCharTok{+}\NormalTok{ smokers }\SpecialCharTok{+}\NormalTok{ Wellbeing\_log }\SpecialCharTok{+}\NormalTok{ Poverty\_log, }\AttributeTok{data =}\NormalTok{ data)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{NHST (Null Hypothesis Significance
+Testing)}\label{nhst-null-hypothesis-significance-testing}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Extract coefficients and p{-}values}
+\NormalTok{coefficients }\OtherTok{\textless{}{-}} \FunctionTok{summary}\NormalTok{(model)}\SpecialCharTok{$}\NormalTok{coefficients}
+\NormalTok{coefficients}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                  Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept)   -13.8559533 9.71839427 -1.425745 1.549886e-01
+## overweight      0.1121372 0.02135141  5.251981 2.868149e-07
+## smokers         0.1193878 0.03394336  3.517267 5.039432e-04
+## Wellbeing_log  15.4791417 4.14795314  3.731754 2.276769e-04
+## Poverty_log    -3.6893668 0.74452020 -4.955362 1.212701e-06
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Significant Predictors:}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Significant predictors with p{-}value \textless{} 0.05:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Significant predictors with p-value < 0.05:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(coefficients[coefficients[, }\DecValTok{4}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{, ])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 Estimate Std. Error   t value     Pr(>|t|)
+## overweight     0.1121372 0.02135141  5.251981 2.868149e-07
+## smokers        0.1193878 0.03394336  3.517267 5.039432e-04
+## Wellbeing_log 15.4791417 4.14795314  3.731754 2.276769e-04
+## Poverty_log   -3.6893668 0.74452020 -4.955362 1.212701e-06
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Explanation:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    NHST evaluates whether each predictor's effect on CVD prevalence is
+    statistically significant.
+  \item
+    If the p-value for a predictor is less than 0.05, we reject the null
+    hypothesis and conclude that the predictor significantly affects CVD
+    prevalence.
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summarize the regression analysis}
+\NormalTok{model\_summary }\OtherTok{\textless{}{-}} \FunctionTok{summary}\NormalTok{(model)}
+\NormalTok{model\_summary}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = CVD ~ overweight + smokers + Wellbeing_log + Poverty_log, 
+##     data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.3721 -1.3957 -0.0764  1.3863  4.8315 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)   -13.85595    9.71839  -1.426 0.154989    
+## overweight      0.11214    0.02135   5.252 2.87e-07 ***
+## smokers         0.11939    0.03394   3.517 0.000504 ***
+## Wellbeing_log  15.47914    4.14795   3.732 0.000228 ***
+## Poverty_log    -3.68937    0.74452  -4.955 1.21e-06 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.903 on 298 degrees of freedom
+## Multiple R-squared:  0.2418, Adjusted R-squared:  0.2316 
+## F-statistic: 23.76 on 4 and 298 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{itemize}
+\item
+  \textbf{Explanation:}
+
+  \begin{itemize}
+  \item
+    This regression model identifies the statistical significance of
+    predictors (e.g., Overweight, Smokers, etc.) on CVD prevalence.
+  \item
+    The regression analysis shows the relationship between several
+    factors and cardiovascular disease (CVD) prevalence:
+  \end{itemize}
+\item
+  \textbf{Key Findings:}
+
+  \begin{itemize}
+  \item
+    \textbf{Overweight:} For every 1\% increase in the overweight
+    proportion, CVD prevalence increases by 0.112\%.
+  \item
+    \textbf{Smokers:} A 1\% rise in smoking is linked to a 0.119\%
+    increase in CVD prevalence.
+  \item
+    \textbf{Wellbeing (Log-transformed):} Higher wellbeing scores
+    significantly increase CVD prevalence (by 15.479\% per unit
+    increase).
+  \item
+    \textbf{Poverty (Log-transformed):} Higher poverty levels are
+    associated with a decrease in CVD prevalence (-3.689\%).
+  \end{itemize}
+\item
+  \textbf{Significance:}
+\end{itemize}
+
+All variables are statistically significant (p \textless{} 0.001),
+meaning they strongly influence CVD prevalence.
+
+\begin{itemize}
+\item
+  \textbf{Model Fit:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{R-squared (24.18\%):} The model explains about 24\% of the
+    variation in CVD prevalence, indicating there are other factors at
+    play.
+  \end{itemize}
+\item
+  \textbf{Overall Conclusion:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Overweight, smoking, and wellbeing positively impact CVD,
+    while poverty has a negative impact.}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Multicolinearity}\label{multicolinearity}
+
+\begin{itemize}
+\tightlist
+\item
+  Multicollinearity occurs in statistical modeling when two or more
+  independent variables in a regression model are highly correlated.
+  This creates challenges in estimating regression coefficients, making
+  it hard to isolate and interpret the individual impact of each
+  predictor on the dependent variable.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate VIF}
+\NormalTok{vif\_values }\OtherTok{\textless{}{-}} \FunctionTok{vif}\NormalTok{(model)}
+
+\CommentTok{\# Print VIF values}
+\FunctionTok{print}\NormalTok{(vif\_values)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    overweight       smokers Wellbeing_log   Poverty_log 
+##      1.197834      1.368128      1.140126      1.276781
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Overweight (1.198):} Low VIF indicates minimal
+  multicollinearity with other predictors.
+\item
+  \textbf{Smokers (1.368):} Also has a low VIF, suggesting no
+  significant multicollinearity.
+\item
+  \textbf{Wellbeing\_log (1.140):} Very low VIF, confirming no
+  multicollinearity.
+\item
+  \textbf{Poverty\_log (1.277):} Low VIF, indicating that this variable
+  also has minimal correlation with the other predictors.
+\item
+  In this case, all predictors (overweight, smokers, Wellbeing\_log,
+  Poverty\_log) have VIF values well below 5, meaning multicollinearity
+  is not a concern for this model. We can confidently proceed with the
+  analysis without making adjustments for multicollinearity.
+\end{itemize}
+
+\subsection{Analysis of Variance
+(ANOVA)}\label{analysis-of-variance-anova}
+
+\begin{itemize}
+\tightlist
+\item
+  ANOVA is used to evaluate whether each independent variable
+  (Poverty\_log, overweight, smokers\_log, and wellbeing) significantly
+  contributes to explaining the variation in the dependent variable (CVD
+  prevalence).
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{anova\_result }\OtherTok{\textless{}{-}} \FunctionTok{anova}\NormalTok{(model)}
+\FunctionTok{print}\NormalTok{(anova\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: CVD
+##                Df  Sum Sq Mean Sq F value    Pr(>F)    
+## overweight      1  144.87 144.868 39.9958 9.293e-10 ***
+## smokers         1    4.11   4.107  1.1338    0.2878    
+## Wellbeing_log   1  106.28 106.276 29.3411 1.252e-07 ***
+## Poverty_log     1   88.94  88.942 24.5556 1.213e-06 ***
+## Residuals     298 1079.38   3.622                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Overweight:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    F-value = 39.9958; Pr(\textgreater F) = 9.293e-10 (***) indicates
+    this variable is highly significant in explaining CVD prevalence.
+  \end{itemize}
+\item
+  \textbf{Smokers:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    F-value = 1.1338; Pr(\textgreater F) = 0.2878 indicates this
+    variable is not significant in explaining CVD.
+  \end{itemize}
+\item
+  \textbf{Wellbeing\_log:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    F-value = 29.3411; Pr(\textgreater F) = 1.252e-07 (***) indicates a
+    strong and significant relationship with CVD.
+  \end{itemize}
+\item
+  \textbf{Poverty\_log:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    F-value = 24.5556; Pr(\textgreater F) = 1.213e-06 (***) indicates a
+    significant effect on CVD prevalence.
+  \end{itemize}
+\item
+  \textbf{Residuals:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The residual sum of squares (1079.38) represents unexplained
+    variability in the dependent variable.
+  \end{itemize}
+\item
+  Overweight, Wellbeing\_log, and Poverty\_log are statistically
+  significant predictors of CVD prevalence (p \textless{} 0.001).
+\item
+  Smokers does not significantly contribute to explaining the variation
+  in CVD prevalence (p = 0.2878).
+\end{itemize}
+
+\subsection{Estimation Approach}\label{estimation-approach}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Extract confidence intervals for coefficients}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"95\% Confidence Intervals for predictors:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 95% Confidence Intervals for predictors:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{conf\_intervals }\OtherTok{\textless{}{-}} \FunctionTok{confint}\NormalTok{(model)}
+\NormalTok{conf\_intervals}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      2.5 %     97.5 %
+## (Intercept)   -32.98133054  5.2694239
+## overweight      0.07011854  0.1541558
+## smokers         0.05258878  0.1861869
+## Wellbeing_log   7.31615039 23.6421331
+## Poverty_log    -5.15455014 -2.2241834
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Explanation:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    2.5\%: The lower bound of the confidence interval (CI).
+  \item
+    97.5\%: The upper bound of the confidence interval (CI).
+  \item
+    The estimation approach provides 95\% confidence intervals for each
+    predictor's effect on CVD.
+  \item
+    This helps interpret the practical significance and magnitude of
+    each variable's impact.
+  \item
+    Variables like overweight, smokers, Wellbeing\_log, and Poverty\_log
+    have confidence intervals that do not cross 0, indicating they are
+    significant predictors in the model.
+  \item
+    The width of each interval reflects the precision of the
+    estimate---narrower intervals indicate greater confidence in the
+    coefficient estimate.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Conclusion}\label{conclusion}
+
+\begin{itemize}
+\tightlist
+\item
+  Overweight is the biggest factor affecting the number of people with
+  cardiovascular disease (CVD) in the area.
+\item
+  The data shows a strong link between being overweight and higher rates
+  of CVD.
+\item
+  Poverty also affects CVD, but its impact is smaller compared to
+  overweight.
+\item
+  To reduce CVD cases, focusing on helping people manage their weight
+  would be the most effective step, along with efforts to reduce poverty
+  for better long-term health.
+\end{itemize}
+
+\subsection{Visualization of Effect of Poverty on
+CVD}\label{visualization-of-effect-of-poverty-on-cvd}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a plot showing the relationship between Poverty and CVD prevalence}
+\NormalTok{poverty\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Poverty, }\AttributeTok{y =}\NormalTok{ CVD)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Effect of Poverty on Cardiovascular Disease Prevalence"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Proportion Living in Poverty (\%)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"CVD Prevalence (\%)"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Explanation:} A scatter plot with a regression line visually
+  depicts the positive trend between Poverty and CVD prevalence, as
+  supported by the statistical analysis.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Print the plot}
+\NormalTok{poverty\_plot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Summary}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The scatterplot shows the relationship between poverty levels
+    (proportion living in poverty, \%) and CVD prevalence (\%).
+  \item
+    The blue line represents the linear trend, indicating a negative
+    relationship: as the level of poverty increases, the prevalence of
+    CVD tends to decrease slightly.
+  \item
+    The shaded area around the blue line represents the confidence
+    interval, showing the uncertainty in the linear regression
+    predictions.
+  \item
+    This plot suggests that poverty may have a negative association with
+    CVD prevalence, contrary to what might be intuitively expected. This
+    result could be influenced by other confounding factors and should
+    be interpreted carefully alongside statistical models.
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Question 2}\label{question-2}
+
+\subsection{Data Dictionary}\label{data-dictionary-1}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2300}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7700}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+SES\_category & Socioeconomic status of the store's location (low,
+medium, high). \\
+customer.satisfaction & Average customer satisfaction score. \\
+staff.satisfaction & Average staff job satisfaction score. \\
+delivery.time & Average delivery time for large and custom items (in
+minutes). \\
+new\_range & Whether the store carries a new range of products
+(TRUE/FALSE). \\
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load the data1set}
+\NormalTok{data1 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"cust\_satisfaction.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Examine the structure of the data1}
+\FunctionTok{str}\NormalTok{(data1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    300 obs. of  5 variables:
+##  $ SES_category         : chr  "Medium" "Medium" "Medium" "High" ...
+##  $ customer.satisfaction: num  7.27 7.93 7.12 6.35 6.78 ...
+##  $ staff.satisfaction   : num  6.88 7.44 7.15 6.47 7.06 ...
+##  $ delivery.time        : num  66.7 68.2 70.7 61.4 57.7 ...
+##  $ new_range            : logi  FALSE FALSE FALSE TRUE TRUE TRUE ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summary of the data1}
+\FunctionTok{summary}\NormalTok{(data1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  SES_category       customer.satisfaction staff.satisfaction delivery.time  
+##  Length:300         Min.   :3.760         Min.   :4.850      Min.   :32.96  
+##  Class :character   1st Qu.:6.099         1st Qu.:6.216      1st Qu.:52.46  
+##  Mode  :character   Median :7.006         Median :6.634      Median :60.45  
+##                     Mean   :6.930         Mean   :6.751      Mean   :59.60  
+##                     3rd Qu.:7.865         3rd Qu.:7.274      3rd Qu.:66.79  
+##                     Max.   :9.670         Max.   :8.860      Max.   :92.48  
+##  new_range      
+##  Mode :logical  
+##  FALSE:142      
+##  TRUE :158      
+##                 
+##                 
+## 
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Key Insights:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Most customer and staff satisfaction scores are around the median
+    values, indicating a relatively balanced distribution.
+  \item
+    Delivery times show a range from fast (33 minutes) to slow (92
+    minutes), with an average of about 60 minutes.
+  \item
+    There is almost an even split between stores carrying (TRUE: 158)
+    and not carrying (FALSE: 142) the new product range.
+  \item
+    This summary provides a quick overview of the cust\_satisfaction
+    data and helps identify trends, variability, and potential areas for
+    further analysis.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Checking Missing Values}\label{checking-missing-values}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show row counts with missing values before any operation}
+\NormalTok{missing\_counts }\OtherTok{\textless{}{-}} \FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(data1))}
+
+\FunctionTok{print}\NormalTok{(}\StringTok{"Row counts with missing values"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Row counts with missing values"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(missing\_counts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          SES_category customer.satisfaction    staff.satisfaction 
+##                     0                     0                     0 
+##         delivery.time             new_range 
+##                     0                     0
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  There are no missing values, hence no operation is required.
+\end{itemize}
+
+\subsection{Converting new\_range and SES\_category as
+factors}\label{converting-new_range-and-ses_category-as-factors}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data1}\SpecialCharTok{$}\NormalTok{new\_range }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(data1}\SpecialCharTok{$}\NormalTok{new\_range)}
+\NormalTok{data1}\SpecialCharTok{$}\NormalTok{SES\_category }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(data1}\SpecialCharTok{$}\NormalTok{SES\_category)}
+
+\FunctionTok{str}\NormalTok{(data1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    300 obs. of  5 variables:
+##  $ SES_category         : Factor w/ 3 levels "High","Low","Medium": 3 3 3 1 1 3 3 3 3 1 ...
+##  $ customer.satisfaction: num  7.27 7.93 7.12 6.35 6.78 ...
+##  $ staff.satisfaction   : num  6.88 7.44 7.15 6.47 7.06 ...
+##  $ delivery.time        : num  66.7 68.2 70.7 61.4 57.7 ...
+##  $ new_range            : Factor w/ 2 levels "FALSE","TRUE": 1 1 1 2 2 2 2 1 1 2 ...
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  new\_range: Treated as a binary factor with two levels (``FALSE'',
+  ``TRUE'').
+\item
+  SES\_category: Treated as a factor with three levels (``High'',
+  ``Low'', ``Medium'').
+\end{itemize}
+
+\subsection{Correlation analysis between numeric
+variables}\label{correlation-analysis-between-numeric-variables}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Why perform correlation analysis?} Correlation analysis helps
+  us understand the strength and direction of the linear relationship
+  between numeric variables.
+\item
+  This provides an initial insight into how variables like staff
+  satisfaction and delivery time may be related to customer
+  satisfaction, helping us determine which variables to include in
+  further analysis.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{correlation\_matrix }\OtherTok{\textless{}{-}}\NormalTok{ data1 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(customer.satisfaction, staff.satisfaction, delivery.time) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{cor}\NormalTok{()}
+\FunctionTok{print}\NormalTok{(correlation\_matrix)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                       customer.satisfaction staff.satisfaction delivery.time
+## customer.satisfaction             1.0000000         0.45404708   -0.25890017
+## staff.satisfaction                0.4540471         1.00000000   -0.06520613
+## delivery.time                    -0.2589002        -0.06520613    1.00000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Generate the heatmap}
+\FunctionTok{ggcorrplot}\NormalTok{(correlation\_matrix, }
+           \AttributeTok{method =} \StringTok{"circle"}\NormalTok{, }
+           \AttributeTok{lab =} \ConstantTok{TRUE}\NormalTok{, }
+           \AttributeTok{title =} \StringTok{"Correlation Matrix Heatmap"}\NormalTok{,}
+           \AttributeTok{colors =} \FunctionTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"white"}\NormalTok{, }\StringTok{"blue"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\begin{itemize}
+\item
+  This matrix represents the correlation coefficients between the
+  numeric variables in the data1set. Correlation coefficients range from
+  -1 to 1 and indicate the strength and direction of the linear
+  relationship between two variables.
+\item
+  \textbf{Insights:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The strongest relationship is between customer satisfaction and
+    staff satisfaction, indicating that improving staff satisfaction
+    could positively impact customer satisfaction.
+  \item
+    Delivery time has a weaker relationship with customer satisfaction,
+    but the negative correlation suggests that faster deliveries may
+    slightly improve customer satisfaction.
+  \item
+    The relationship between staff satisfaction and delivery time is
+    negligible.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Regression Analysis}\label{regression-analysis-1}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Why perform multiple linear regression?} Multiple linear
+  regression allows us to assess the combined and individual impact of
+  multiple independent variables (e.g., staff satisfaction, delivery
+  time, new range, and SES category) on the dependent variable (customer
+  satisfaction).
+\item
+  This helps identify the most significant predictors of customer
+  satisfaction while controlling for the effects of other variables.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model1 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(customer.satisfaction }\SpecialCharTok{\textasciitilde{}}\NormalTok{ staff.satisfaction }\SpecialCharTok{+}\NormalTok{ delivery.time }\SpecialCharTok{+}\NormalTok{ new\_range }\SpecialCharTok{+}\NormalTok{ SES\_category, }\AttributeTok{data =}\NormalTok{ data1)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{NHST (Null Hypothesis Significance
+Testing)}\label{nhst-null-hypothesis-significance-testing-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Extracting p{-}values from the model to test the null hypothesis for each predictor.}
+\NormalTok{hypothesis\_tests }\OtherTok{\textless{}{-}} \FunctionTok{summary}\NormalTok{(model1)}\SpecialCharTok{$}\NormalTok{coefficients[, }\StringTok{"Pr(\textgreater{}|t|)"}\NormalTok{]}
+\FunctionTok{print}\NormalTok{(hypothesis\_tests)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        (Intercept) staff.satisfaction      delivery.time      new_rangeTRUE 
+##       6.865783e-16       1.770268e-05       5.772007e-04       4.036432e-01 
+##    SES_categoryLow SES_categoryMedium 
+##       6.587804e-02       8.432125e-15
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Interpretation: Small p{-}values (\textless{} 0.05) indicate we can reject the null hypothesis that the predictor has no effect.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Significant predictors:} Staff Satisfaction, Delivery Time,
+  and Medium SES.
+\item
+  \textbf{Marginally significant:} Low SES.
+\item
+  \textbf{Not significant:} New Range.
+\item
+  This output helps identify which variables meaningfully affect
+  customer satisfaction and guide business decisions to improve it.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summarize the model}
+\FunctionTok{summary}\NormalTok{(model1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = customer.satisfaction ~ staff.satisfaction + delivery.time + 
+##     new_range + SES_category, data = data1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2.59866 -0.67952 -0.01176  0.65469  2.89231 
+## 
+## Coefficients:
+##                     Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)         5.218333   0.610361   8.550 6.87e-16 ***
+## staff.satisfaction  0.351113   0.080457   4.364 1.77e-05 ***
+## delivery.time      -0.017220   0.004948  -3.480 0.000577 ***
+## new_rangeTRUE       0.093878   0.112249   0.836 0.403643    
+## SES_categoryLow    -0.255765   0.138541  -1.846 0.065878 .  
+## SES_categoryMedium  1.209293   0.147773   8.183 8.43e-15 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.9687 on 294 degrees of freedom
+## Multiple R-squared:  0.447,  Adjusted R-squared:  0.4376 
+## F-statistic: 47.53 on 5 and 294 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{itemize}
+\item
+  \textbf{Key Findings:}
+
+  \begin{itemize}
+  \item
+    \textbf{Staff Satisfaction:} A positive relationship exists: Higher
+    staff satisfaction increases customer satisfaction. (Significant)
+  \item
+    \textbf{Delivery Time:} A negative relationship exists: Longer
+    delivery times reduce customer satisfaction. (Significant)
+  \item
+    \textbf{New Product Range:} Stores carrying a new product range have
+    slightly higher customer satisfaction, but this effect is not
+    significant.
+  \item
+    \textbf{Socioeconomic Status (SES):} Stores in medium SES areas have
+    significantly higher customer satisfaction than those in high SES
+    areas. Stores in low SES areas have slightly lower satisfaction
+    compared to high SES areas, but this effect is only marginally
+    significant.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Estimation Approach}\label{estimation-approach-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Extract confidence intervals for coefficients}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"95\% Confidence Intervals for predictors:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 95% Confidence Intervals for predictors:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{confintervals }\OtherTok{\textless{}{-}} \FunctionTok{confint}\NormalTok{(model1)}
+\NormalTok{confintervals}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                          2.5 %       97.5 %
+## (Intercept)         4.01710195  6.419563868
+## staff.satisfaction  0.19276839  0.509457959
+## delivery.time      -0.02695804 -0.007481643
+## new_rangeTRUE      -0.12703512  0.314791616
+## SES_categoryLow    -0.52842293  0.016892708
+## SES_categoryMedium  0.91846670  1.500119628
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Significant Predictors:} staff.satisfaction, delivery.time,
+  and SES\_categoryMedium are statistically significant because their
+  confidence intervals do not include 0.
+\item
+  \textbf{Non-Significant Predictors:} new\_rangeTRUE and
+  SES\_categoryLow are not statistically significant because their
+  confidence intervals include 0.
+\item
+  \textbf{Direction of Effect:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Positive predictors (e.g., staff.satisfaction and
+    SES\_categoryMedium) are associated with an increase in the
+    dependent variable.
+  \item
+    Negative predictors (e.g., delivery.time) are associated with a
+    decrease in the dependent variable.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Analysis of Variance
+(ANOVA)}\label{analysis-of-variance-anova-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{anova\_result2 }\OtherTok{\textless{}{-}} \FunctionTok{anova}\NormalTok{(model1)}
+\FunctionTok{print}\NormalTok{(anova\_result2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: customer.satisfaction
+##                     Df  Sum Sq Mean Sq  F value    Pr(>F)    
+## staff.satisfaction   1 102.841 102.841 109.6033 < 2.2e-16 ***
+## delivery.time        1  26.339  26.339  28.0709 2.297e-07 ***
+## new_range            1   0.347   0.347   0.3696    0.5437    
+## SES_category         2  93.456  46.728  49.8006 < 2.2e-16 ***
+## Residuals          294 275.860   0.938                       
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  F-value = 109.60; p-value \textless{} 2.2e-16 (***) indicates this
+  variable is highly significant. This suggests that staff.satisfaction
+  has a strong and meaningful impact on customer.satisfaction.
+\item
+  F-value = 28.07; p-value = 2.297e-07 (***) indicates it is also highly
+  significant.The negative relationship (from earlier analysis) suggests
+  that faster delivery times improve customer satisfaction.
+\item
+  F-value = 0.37; p-value = 0.5437 indicates this variable is not
+  significant. It likely does not have a meaningful impact on customer
+  satisfaction.
+\item
+  F-value = 49.80; p-value \textless{} 2.2e-16 (***) indicates a highly
+  significant effect. SES category is an important predictor of customer
+  satisfaction.
+\item
+  The residual sum of squares (275.86) represents the variability in
+  customer.satisfaction not explained by the predictors.
+\item
+  Significant predictors: staff.satisfaction, delivery.time, and
+  SES\_category significantly affect customer.satisfaction.
+\item
+  Non-significant predictor: new\_range does not have a statistically
+  significant effect.
+\end{itemize}
+
+\subsection{Check assumptions of linear
+regression}\label{check-assumptions-of-linear-regression}
+
+\subsubsection{1. Linearity and
+Homoscedasticity}\label{linearity-and-homoscedasticity}
+
+\begin{itemize}
+\tightlist
+\item
+  Linearity assumes that the relationship between the predictors
+  (independent variables) and the outcome (dependent variable) is
+  linear. This ensures the model is appropriately capturing the
+  relationship.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(model1, }\AttributeTok{which =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-20-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  This Residuals vs.~Fitted plot is a diagnostic tool for assessing the
+  assumptions of linear regression, specifically linearity and
+  homoscedasticity.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Residuals (y-axis):} The differences between the observed
+    and predicted values of the dependent variable
+    (customer.satisfaction).
+  \item
+    \textbf{Fitted Values (x-axis):} The predicted values of
+    customer.satisfaction based on the regression model.
+  \end{itemize}
+\item
+  The residuals appear randomly scattered, suggesting the linearity
+  assumption is reasonable.
+\item
+  The residuals seem to have consistent variance across the range of
+  fitted values, satisfying the homoscedasticity assumption.
+\item
+  The plot suggests that the assumptions of linearity and
+  homoscedasticity are generally met.
+\end{itemize}
+
+\subsubsection{2. Normality of Residuals}\label{normality-of-residuals}
+
+\begin{itemize}
+\tightlist
+\item
+  Normality assumes that the residuals (errors) follow a normal
+  distribution. This is crucial for making accurate statistical
+  inferences (e.g., p-values, confidence intervals).
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(model1, }\AttributeTok{which =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  The Q-Q (Quantile-Quantile) plot of residuals is used to check whether
+  the residuals from the regression model follow a normal distribution.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Standardized Residuals (y-axis):} These are the residuals
+    (differences between actual and predicted values) that have been
+    standardized to have a mean of 0 and a standard deviation of 1.
+  \item
+    \textbf{Theoretical Quantiles (x-axis):}These are the expected
+    quantiles if the residuals were perfectly normally distributed.
+  \item
+    \textbf{45-degree Line:}The dotted line represents the ideal
+    scenario where the residuals perfectly follow a normal distribution.
+  \end{itemize}
+\item
+  Most points align well with the line in the middle, suggesting that
+  the residuals are approximately normal for the bulk of the data1.
+\end{itemize}
+
+\subsection{Supporting Visualizations}\label{supporting-visualizations}
+
+\subsubsection{Scatter plot: Customer Satisfaction vs Staff
+Satisfaction}\label{scatter-plot-customer-satisfaction-vs-staff-satisfaction}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Why scatter plots?} Scatter plots are used to visualize the
+  relationship between two continuous variables.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ staff.satisfaction, }\AttributeTok{y =}\NormalTok{ customer.satisfaction)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Customer Satisfaction vs Staff Satisfaction"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Staff Satisfaction"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Customer Satisfaction"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-22-1.pdf}
+
+\begin{itemize}
+\item
+  \textbf{Explaination:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This plot helps us understand if there is a linear relationship
+    between staff satisfaction and customer satisfaction.
+  \end{itemize}
+\item
+  \textbf{data1 Points:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Each black dot represents a store.
+  \item
+    The position of the dot indicates the store's values for Staff
+    Satisfaction (x-axis) and Customer Satisfaction (y-axis).
+  \end{itemize}
+\item
+  \textbf{Regression Line:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The blue line represents the fitted linear regression model.
+  \item
+    This line shows the trend or relationship between Staff Satisfaction
+    and Customer Satisfaction.
+  \end{itemize}
+\item
+  \textbf{Shaded Area:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The gray area around the regression line represents the confidence
+    interval.
+  \item
+    It shows the range within which the true regression line is likely
+    to fall.
+  \end{itemize}
+\item
+  \textbf{Key Observations:}
+\item
+  \textbf{Positive Relationship:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The regression line slopes upward, indicating a positive
+    relationship between Staff Satisfaction and Customer Satisfaction.
+  \item
+    Higher staff satisfaction is associated with higher customer
+    satisfaction.
+  \end{itemize}
+\item
+  \textbf{Strength of Relationship:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    While there is a clear upward trend, the scatter of points around
+    the line suggests some variability, meaning other factors likely
+    also influence customer satisfaction.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Boxplot: Customer Satisfaction by SES
+Category}\label{boxplot-customer-satisfaction-by-ses-category}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Why boxplots?} Boxplots are ideal for comparing the
+  distribution of a continuous variable across categorical groups.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ SES\_category, }\AttributeTok{y =}\NormalTok{ customer.satisfaction)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Customer Satisfaction by SES Category"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"SES Category"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Customer Satisfaction"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-23-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Explaination:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This boxplot shows how customer satisfaction varies across stores
+    located in different socioeconomic areas.
+  \item
+    Medium SES stores generally have higher customer satisfaction
+    compared to Low and High SES stores.
+  \item
+    Low SES stores have the most variability, indicating inconsistent
+    customer satisfaction.
+  \item
+    High SES stores show consistent satisfaction levels but slightly
+    lower median satisfaction compared to Medium SES.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Boxplot: Customer Satisfaction by New
+Range}\label{boxplot-customer-satisfaction-by-new-range}
+
+\begin{itemize}
+\tightlist
+\item
+  Boxplots are again used here to compare customer satisfaction across
+  the presence or absence of a new range.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{factor}\NormalTok{(new\_range), }\AttributeTok{y =}\NormalTok{ customer.satisfaction)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Customer Satisfaction by New Range"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"New Range (TRUE/FALSE)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Customer Satisfaction"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-24-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Explaination:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This plot helps identify if carrying a new product range impacts
+    customer satisfaction.
+  \item
+    The lack of a significant difference in medians aligns with the
+    earlier analysis showing that new\_rangeTRUE is not statistically
+    significant (its confidence interval included 0).
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Scatter plot: Customer Satisfaction vs Delivery
+Time}\label{scatter-plot-customer-satisfaction-vs-delivery-time}
+
+\begin{itemize}
+\tightlist
+\item
+  Scatter plots are used here to evaluate the relationship between
+  delivery time and customer satisfaction.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ delivery.time, }\AttributeTok{y =}\NormalTok{ customer.satisfaction)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Customer Satisfaction vs Delivery Time"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Delivery Time (minutes)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Customer Satisfaction"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\includegraphics{5608651_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+\begin{itemize}
+\item
+  \textbf{Explaination:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This plot reveals whether longer delivery times are associated with
+    lower customer satisfaction.
+  \end{itemize}
+\item
+  \textbf{data1 Points:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Each black dot represents a store.
+  \item
+    The position of the dot shows its corresponding delivery time and
+    customer satisfaction score.
+  \end{itemize}
+\item
+  \textbf{Regression Line:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The red line represents the overall linear regression fit.
+  \item
+    It shows the trend in how delivery time impacts customer
+    satisfaction.
+  \end{itemize}
+\item
+  \textbf{Shaded Area:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The gray area around the line represents the confidence interval of
+    the regression line.
+  \item
+    It indicates the range within which the true relationship is likely
+    to lie.
+  \end{itemize}
+\item
+  \textbf{Key Observations:}
+\item
+  \textbf{Negative Slope:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The red line slopes downward, indicating a negative relationship
+    between delivery time and customer satisfaction.
+  \item
+    As delivery time increases, customer satisfaction tends to decrease.
+  \end{itemize}
+\item
+  \textbf{Spread of Points:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The scatter of points around the line shows variability in customer
+    satisfaction that is not explained by delivery time alone.
+  \item
+    Other factors (e.g., SES category, staff satisfaction) likely also
+    influence customer satisfaction.
+  \end{itemize}
+\item
+  \textbf{Conclusions:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Delivery time has a negative effect on customer satisfaction: longer
+    delivery times are associated with lower satisfaction levels.
+  \item
+    The effect size and variability might differ across stores
+    categorized by SES, which is explored in the full analysis using an
+    interaction model.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Interaction between Delivery Time and SES Category with
+Customer
+Satisfaction}\label{interaction-between-delivery-time-and-ses-category-with-customer-satisfaction}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Fit a linear model with interaction between delivery time and SES category}
+\NormalTok{interaction\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(customer.satisfaction }\SpecialCharTok{\textasciitilde{}}\NormalTok{ delivery.time }\SpecialCharTok{*}\NormalTok{ SES\_category, }\AttributeTok{data =}\NormalTok{ data1)}
+
+\CommentTok{\# Summarize the model}
+\NormalTok{interaction\_summary }\OtherTok{\textless{}{-}} \FunctionTok{summary}\NormalTok{(interaction\_model)}
+\NormalTok{interaction\_summary}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = customer.satisfaction ~ delivery.time * SES_category, 
+##     data = data1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2.43290 -0.63000  0.00057  0.72673  2.52903 
+## 
+## Coefficients:
+##                                  Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)                       8.62092    0.57199  15.072  < 2e-16 ***
+## delivery.time                    -0.03471    0.00946  -3.669 0.000289 ***
+## SES_categoryLow                  -2.12232    0.77457  -2.740 0.006519 ** 
+## SES_categoryMedium                0.29635    0.76383   0.388 0.698310    
+## delivery.time:SES_categoryLow     0.02976    0.01253   2.374 0.018221 *  
+## delivery.time:SES_categoryMedium  0.01937    0.01287   1.505 0.133336    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.9916 on 294 degrees of freedom
+## Multiple R-squared:  0.4205, Adjusted R-squared:  0.4107 
+## F-statistic: 42.67 on 5 and 294 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\subsubsection{Model Interpretation}\label{model-interpretation}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Key Terms}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{delivery.time}: Main effect of delivery time on customer
+    satisfaction.
+  \item
+    \texttt{SES\_category}: Differences in customer satisfaction across
+    SES categories.
+  \item
+    \texttt{delivery.time:SES\_category}: Interaction term, indicating
+    whether the effect of delivery time varies across SES categories.
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Extract coefficients and p{-}values for interaction terms}
+\NormalTok{interaction\_coefficients }\OtherTok{\textless{}{-}}\NormalTok{ interaction\_summary}\SpecialCharTok{$}\NormalTok{coefficients}
+\NormalTok{interaction\_coefficients}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                     Estimate  Std. Error    t value
+## (Intercept)                       8.62092466 0.571987018 15.0718887
+## delivery.time                    -0.03470626 0.009459785 -3.6688216
+## SES_categoryLow                  -2.12232317 0.774568661 -2.7400065
+## SES_categoryMedium                0.29635382 0.763832760  0.3879826
+## delivery.time:SES_categoryLow     0.02976183 0.012534617  2.3743708
+## delivery.time:SES_categoryMedium  0.01937249 0.012870030  1.5052402
+##                                      Pr(>|t|)
+## (Intercept)                      1.985741e-38
+## delivery.time                    2.892217e-04
+## SES_categoryLow                  6.519458e-03
+## SES_categoryMedium               6.983097e-01
+## delivery.time:SES_categoryLow    1.822084e-02
+## delivery.time:SES_categoryMedium 1.333359e-01
+\end{verbatim}
+
+\subsection{SES-Specific Results}\label{ses-specific-results}
+
+\begin{itemize}
+\tightlist
+\item
+  In \textbf{High SES stores} (reference group), the effect of delivery
+  time on customer satisfaction is:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The coefficient for delivery.time is -0.03471.
+  \item
+    This means that for High SES stores, a 1-unit increase in delivery
+    time (e.g., additional hour or minute, depending on the unit of
+    measurement) leads to a 0.03471-unit decrease in customer
+    satisfaction on average.
+  \item
+    So, In High SES stores, as delivery time increases, customer
+    satisfaction decreases. The negative sign of the coefficient
+    indicates an inverse relationship between delivery time and customer
+    satisfaction for the High SES group.
+  \end{itemize}
+\item
+  In \textbf{Medium SES stores} (reference group), the effect of
+  delivery time on customer satisfaction is:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In the current model output, High SES is the reference group. To
+    calculate the effect of delivery time for Medium SES stores, we need
+    to include the interaction term for
+    delivery.time:SES\_categoryMedium along with the main effect of
+    delivery.time.
+  \item
+    Coefficient for delivery.time = -0.03471
+  \item
+    Coefficient for delivery.time:SES\_categoryMedium = 0.01937
+  \item
+    Effect in Medium SES Stores: The effect of delivery time in Medium
+    SES stores is the sum of the main effect and the interaction effect:
+  \item
+    Effect=−0.03471+0.01937=−0.01534
+  \item
+    So, In Medium SES stores, a 1-unit increase in delivery time results
+    in a 0.01534-unit decrease in customer satisfaction on average. This
+    decrease is smaller compared to the High SES group, reflecting a
+    less negative impact of delivery time in Medium SES stores.
+  \end{itemize}
+\item
+  In \textbf{Low SES stores} (reference group), the effect of delivery
+  time on customer satisfaction is:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Similarly, To calculate the effect for Low SES stores, we use the
+    main effect of delivery.time and the interaction term for
+    delivery.time:SES\_categoryLow.
+  \item
+    Coefficient for delivery.time = -0.03471
+  \item
+    Coefficient for delivery.time:SES\_categoryLow = 0.02976
+  \item
+    Effect in Low SES Stores: The effect of delivery time in Low SES
+    stores is the sum of the main effect and the interaction effect:
+  \item
+    Effect=−0.03471+0.02976=−0.00495
+  \item
+    So, In Low SES stores, a 1-unit increase in delivery time results in
+    a 0.00495-unit decrease in customer satisfaction on average. This
+    effect is much smaller (closer to zero) compared to both High and
+    Medium SES stores, indicating that delivery time has a weaker
+    negative impact on customer satisfaction in Low SES stores.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Visualization}\label{visualization}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a plot to visualize the interaction}
+\NormalTok{interaction\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(data1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ delivery.time, }\AttributeTok{y =}\NormalTok{ customer.satisfaction, }\AttributeTok{color =}\NormalTok{ SES\_category)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{group =}\NormalTok{ SES\_category), }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"High"} \OtherTok{=} \StringTok{"\#1f77b4"}\NormalTok{, }\StringTok{"Medium"} \OtherTok{=} \StringTok{"\#ff7f0e"}\NormalTok{, }\StringTok{"Low"} \OtherTok{=} \StringTok{"\#2ca02c"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Effect of Delivery Time on Customer Satisfaction Across SES Categories"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Delivery Time (minutes)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Customer Satisfaction"}\NormalTok{,}
+    \AttributeTok{color =} \StringTok{"SES Category"}
+\NormalTok{  )}
+\NormalTok{interaction\_plot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\includegraphics{5608651_files/figure-latex/interaction-plot-1.pdf}
+
+\begin{itemize}
+\item
+  This plot illustrates the effect of delivery time on customer
+  satisfaction across different SES (Socio-Economic Status) categories.
+  Each line represents the relationship between delivery time (x-axis,
+  in minutes) and customer satisfaction (y-axis) for a specific SES
+  category. The color coding represents the three SES categories: High
+  (red), Medium (blue), and Low (green).
+\item
+  \textbf{Key Observations:}
+
+  \begin{itemize}
+  \item
+    \textbf{High SES (Red Line):}
+  \item
+    The red line has a steep negative slope, indicating that delivery
+    time has the most significant negative effect on customer
+    satisfaction in high SES stores.
+  \item
+    As delivery time increases, customer satisfaction decreases sharply,
+    reflecting that customers in high SES stores are particularly
+    sensitive to delays in delivery.
+  \item
+    \textbf{Medium SES (Blue Line):}
+  \item
+    The blue line has a moderate negative slope, indicating that
+    delivery time also negatively impacts customer satisfaction in
+    medium SES stores, but the effect is less pronounced than in high
+    SES stores.
+  \item
+    Customers in medium SES stores are less sensitive to delays compared
+    to high SES stores.
+  \item
+    \textbf{Low SES (Green Line):}
+  \item
+    The green line is nearly flat, suggesting that delivery time has a
+    minimal impact on customer satisfaction in low SES stores.
+  \item
+    Customers in low SES stores are the least sensitive to delivery
+    delays, likely because their expectations or priorities regarding
+    delivery time differ.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Analysis of Variance
+(ANOVA)}\label{analysis-of-variance-anova-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{aov\_model }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(customer.satisfaction }\SpecialCharTok{\textasciitilde{}}\NormalTok{ delivery.time}\SpecialCharTok{*}\NormalTok{SES\_category, }\AttributeTok{data=}\NormalTok{data1)}
+\FunctionTok{summary}\NormalTok{(aov\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                             Df Sum Sq Mean Sq F value   Pr(>F)    
+## delivery.time                1  33.44   33.44  34.009 1.44e-08 ***
+## SES_category                 2 170.75   85.38  86.836  < 2e-16 ***
+## delivery.time:SES_category   2   5.59    2.80   2.844   0.0598 .  
+## Residuals                  294 289.06    0.98                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{itemize}
+\item
+  \textbf{Delivery Time:}
+\item
+  Pr(\textgreater F) = 1.44e-08 (p \textless{} 0.001): Highly
+  significant.
+\item
+  Suggests that delivery.time has a strong effect on
+  customer.satisfaction.
+\item
+  \textbf{SES Category:}
+\item
+  Pr(\textgreater F) \textless{} 2e-16 (p \textless{} 0.001): Highly
+  significant.
+\item
+  Indicates that SES\_category significantly affects
+  customer.satisfaction.
+\item
+  \textbf{Interaction (delivery.time:SES\_category):}
+\item
+  Pr(\textgreater F) = 0.0598 (p \textless{} 0.1): Marginally
+  significant.
+\item
+  Suggests a weak interaction between delivery.time and SES\_category.
+  The effect of delivery time on customer satisfaction might - slightly
+  depend on SES category.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}
