@@ -35,6 +35,20 @@ We analyze how factors like delivery times, job satisfaction, SES categories, an
 
 ---
 
+## How to View the Report
+
+GitHub does not render `.html` files like a browser, so to properly view the final report:
+
+👉 **[Click here to download the HTML report](https://github.com/Sarthak262/Business-Statistics-Assignment/raw/main/5608651.html)**
+
+Then open it in your browser (double-click the file) to see the full formatted output with:
+- Table of contents
+- Interactive plots (if any)
+- Full statistical commentary
+
+This is the rendered version of the `.Rmd` file submitted for the Business Statistics assignment.
+
+
 ## AI Use Declaration
 
 Generative AI (ChatGPT) was used only for structure planning and language support. All code, data cleaning, statistical analysis, and interpretation were independently developed.
