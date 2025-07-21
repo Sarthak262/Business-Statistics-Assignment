@@ -39,7 +39,7 @@ We analyze how factors like delivery times, job satisfaction, SES categories, an
 
 GitHub does not render `.html` files like a browser, so to properly view the final report:
 
-👉 **[Click here to download the HTML report](https://github.com/Sarthak262/Business-Statistics-Assignment/raw/main/5608651.html)**
+Download the 5608651.html file
 
 Then open it in your browser (double-click the file) to see the full formatted output with:
 - Table of contents
